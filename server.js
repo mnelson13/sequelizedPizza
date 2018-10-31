@@ -6,6 +6,8 @@ let PORT = process.env.PORT || 8080;
 
 let app = express();
 
+let db = require("./models")
+
 app.use(express.static(path.join(__dirname, "./public")));
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,10 +19,10 @@ let exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-let routes = require("./controllers/pizzas_controller.js");
+require("./routes/api-routes.js")(app);
 
-app.use(routes);
-
-app.listen(PORT, function() {
-    console.log("App now listening at localhost:" + PORT);
+db.sequelize.sync().then(function(){
+    app.listen(PORT, function() {
+        console.log("App now listening at localhost:" + PORT);
+    });
 });
