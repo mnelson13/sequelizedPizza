@@ -9,4 +9,4 @@
 * All pizzas and usernames added are stored in a database
 
 ### Languages/Technologies Used:
-* HTML, CSS, Materialize, JavaScript, jQuery, Node.js, Express.js, MySQL, Handlebars, Sequelize
+* HTML, CSS, Materialize, JavaScript, jQuery, Node.js, Express.js, MySQL, Handlebars, Sequelize, MVC design pattern
