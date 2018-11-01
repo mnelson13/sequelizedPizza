@@ -8,16 +8,27 @@
     <div class="row">
         <div class="col m6">
             <h5>Available Pizzas:</h5>
-            <ul>
+            
                 {{#each pizzas}}
-                <li>
-                    <p>
-                        <a class="waves-effect waves-light btn-small blue lighten-1" data-pizzaid="{{this.id}}" id="eatPizza">Devour it!</a>
-                        {{this.pizza_name}}
-                    </p>
-                </li>
+                <div class="row">
+                    <form class="eatPizzaForm" id="{{this.id}}">
+                        <div class="col m3 center-align">
+                            <br>
+                            <h6>{{this.pizza_name}}</h6>
+                        </div>
+                        <div class="input-field col s4">
+                            
+                            <input name="customer" id="pizza{{this.id}}" type="text" class="validate">
+                            <label for="name">Name</label>
+                            
+                            
+                            <button class="waves-effect waves-light btn-small blue lighten-1" type="submit" data-pizzaid="{{this.id}}" id="eatPizza">Devour it!</button>
+                        </div> 
+                        
+                    </form>
+                </div>
                 {{/each}}    
-            </ul>
+            
         </div>
         <div class="col m6">
             <h5>Pizzas Already Devoured:</h5>
@@ -26,7 +37,7 @@
                 <li>
                     <p>
                         {{!-- <a class="waves-effect waves-light btn-small" data-pizzaid="{{this.id}}" id="eatPizza">Devour it!</a> --}}
-                        {{this.pizza_name}}
+                        {{this.pizza_name}} (Eaten by: {{this.Customer.name}})
                     </p>
                 </li>
                 {{/each}}    

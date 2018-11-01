@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     paranoid: true,
   });
   Pizza.associate = function(models) {
-    // associations can be defined here
+    Pizza.belongsTo(models.Customer)
   };
   return Pizza;
 };
